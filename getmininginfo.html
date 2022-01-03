@@ -40,8 +40,8 @@ Returns a json object containing mining-related information.
 Result:
 {
   &#34;blocks&#34;: nnn,             (numeric) The current block
-  &#34;currentblocksize&#34;: nnn,   (numeric) The last block size
-  &#34;currentblocktx&#34;: nnn,     (numeric) The last block transaction
+  &#34;currentblocksize&#34;: nnn,   (numeric, optional) The block size of the last assembled block (only present if a block was ever assembled)
+  &#34;currentblocktx&#34;: nnn,     (numeric, optional) The number of block non-coinbase transactions of the last assembled block (only present if a block was ever assembled)
   &#34;difficulty&#34;: xxx.xxxxx    (numeric) The current difficulty
   &#34;errors&#34;: &#34;...&#34;          (string) Current errors
   &#34;generate&#34;: true|false     (boolean) If the generation is on or off (see getgenerate or setgenerate calls)
