@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.6.0 RPC Docs - getblocktemplate">
+    <meta name="description" content="Zcash 4.6.0-1 RPC Docs - getblocktemplate">
     <meta name="author" content="">
 
-    <title>getblocktemplate - Zcash 4.6.0 RPC Docs</title>
+    <title>getblocktemplate - Zcash 4.6.0-1 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,14 +25,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.6.0 RPC docs</a>
+      <a class="navbar-brand" href="/">Zcash 4.6.0-1 RPC docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getblocktemplate - Zcash 4.6.0 RPC</h1>
+            <h1>getblocktemplate - Zcash 4.6.0-1 RPC</h1>
           
             <pre>getblocktemplate ( &#34;jsonrequestobject&#34; )
 
@@ -70,9 +70,9 @@ Result:
   &#34;finalsaplingroothash&#34; : &#34;xxxx&#34;,   (string) (DEPRECATED) The hash of the light client root field in the block header
   &#34;defaultroots&#34; : {                 (json object) root hashes that need to be recomputed if the transaction set is modified
      &#34;merkleroot&#34; : &#34;xxxx&#34;           (string) The hash of the transactions in the block header
-     &#34;authdataroot&#34; : &#34;xxxx&#34;         (string) The hash of the authorizing data merkel tree
      &#34;chainhistoryroot&#34; : &#34;xxxx&#34;     (string) The hash of the chain history
-     &#34;blockcommitmentshash&#34; : &#34;xxxx&#34; (string) The hash of the block commitments field in the block header
+     &#34;authdataroot&#34; : &#34;xxxx&#34;         (string) (From NU5) The hash of the authorizing data merkel tree
+     &#34;blockcommitmentshash&#34; : &#34;xxxx&#34; (string) (From NU5) The hash of the block commitments field in the block header
   }
   &#34;transactions&#34; : [                 (array) contents of non-coinbase transactions that should be included in the next block
       {
