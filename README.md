@@ -1,6 +1,6 @@
 # Zcash RPC Documentation Generator
 
-This tool extracts and formats the help text for each of the Zcash RPC calls. The output of this script is hosted at [zcash.github.io/rpc](https://zcash.github.io/rpc). 
+This tool extracts and formats the help text for each of the Zcash RPC calls. The output of this script is hosted at [zcash-rpc.github.io](https://zcash-rpc.github.io). 
 
 See the `script` directory for the `zcash.go` script that generates the output and template.
 
