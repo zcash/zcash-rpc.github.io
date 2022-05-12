@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.7.0 RPC Docs - listunspent">
+    <meta name="description" content="Zcash 5.0.0 RPC Docs - listunspent">
     <meta name="author" content="">
 
-    <title>listunspent - Zcash 4.7.0 RPC Docs</title>
+    <title>listunspent - Zcash 5.0.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,22 +25,21 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.7.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>listunspent - Zcash 4.7.0 RPC</h1>
+            <h1>listunspent - Zcash 5.0.0 RPC</h1>
           
             <pre>listunspent ( minconf maxconf  [&#34;address&#34;,...] )
 
-Returns array of unspent transaction outputs
-with between minconf and maxconf (inclusive) confirmations.
-Optionally filter to only include txouts paid to specified addresses.
-Results are an array of Objects, each of which has:
-{txid, vout, scriptPubKey, amount, confirmations}
+Returns array of unspent transparent transaction outputs with between minconf and
+maxconf (inclusive) confirmations. Use `z_listunspent` instead to see information
+related to unspent shielded notes. Results may be optionally filtered to only include
+txouts paid to specified addresses.
 
 Arguments:
 1. minconf          (numeric, optional, default=1) The minimum confirmations to filter

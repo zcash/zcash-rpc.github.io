@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.7.0 RPC Docs - listreceivedbyaddress">
+    <meta name="description" content="Zcash 5.0.0 RPC Docs - listreceivedbyaddress">
     <meta name="author" content="">
 
-    <title>listreceivedbyaddress - Zcash 4.7.0 RPC Docs</title>
+    <title>listreceivedbyaddress - Zcash 5.0.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,18 +25,21 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.7.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>listreceivedbyaddress - Zcash 4.7.0 RPC</h1>
+            <h1>listreceivedbyaddress - Zcash 5.0.0 RPC</h1>
           
             <pre>listreceivedbyaddress ( minconf includeempty includeWatchonly)
 
-List balances by receiving address.
+List balances by transparent receiving address. This API does not provide
+any information for associated with shielded addresses and should only be used
+in circumstances where it is necessary to interoperate with legacy Bitcoin
+infrastructure.
 
 Arguments:
 1. minconf       (numeric, optional, default=1) The minimum number of confirmations before payments are included.
@@ -47,7 +50,7 @@ Result:
 [
   {
     &#34;involvesWatchonly&#34; : true,        (bool) Only returned if imported addresses were involved in transaction
-    &#34;address&#34; : &#34;receivingaddress&#34;,  (string) The receiving address
+    &#34;address&#34; : &#34;receivingaddress&#34;,  (string) The receiving transparent address
     &#34;amount&#34; : x.xxx,                  (numeric) The total amount in ZEC received by the address
     &#34;amountZat&#34; : xxxx                 (numeric) The amount in zatoshis
     &#34;confirmations&#34; : n                (numeric) The number of confirmations of the most recent transaction included

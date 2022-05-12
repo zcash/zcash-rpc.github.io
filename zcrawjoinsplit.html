@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.7.0 RPC Docs - zcrawjoinsplit">
+    <meta name="description" content="Zcash 5.0.0 RPC Docs - zcrawjoinsplit">
     <meta name="author" content="">
 
-    <title>zcrawjoinsplit - Zcash 4.7.0 RPC Docs</title>
+    <title>zcrawjoinsplit - Zcash 5.0.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,35 +25,19 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.7.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>zcrawjoinsplit - Zcash 4.7.0 RPC</h1>
+            <h1>zcrawjoinsplit - Zcash 5.0.0 RPC</h1>
           
-            <pre>zcrawjoinsplit rawtx inputs outputs vpub_old vpub_new
-  inputs: a JSON object mapping {note: zcsecretkey, ...}
-  outputs: a JSON object mapping {zcaddr: value, ...}
+            <pre>zcrawjoinsplit is DEPRECATED and will be removed in a future release
 
-DEPRECATED. Splices a joinsplit into rawtx. Inputs are unilaterally confidential.
-Outputs are confidential between sender/receiver. The vpub_old and
-vpub_new values are globally public and move transparent value into
-or out of the confidential value store, respectively.
-
-Note: The caller is responsible for delivering the output enc1 and
-enc2 to the appropriate recipients, as well as signing rawtxout and
-ensuring it is mined. (A future RPC call will deliver the confidential
-payments in-band on the blockchain.)
-
-Output: {
-  &#34;encryptednote1&#34;: enc1,
-  &#34;encryptednote2&#34;: enc2,
-  &#34;rawtxn&#34;: rawtxout
-}
-
+restart with `-allowdeprecated=zcrawjoinsplit` if you require backward compatibility.
+See https://zcash.github.io/zcash/user/deprecation.html for more information.
 </pre>
             <hr>
           

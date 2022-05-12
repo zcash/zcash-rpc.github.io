@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.7.0 RPC Docs - getbalance">
+    <meta name="description" content="Zcash 5.0.0 RPC Docs - getbalance">
     <meta name="author" content="">
 
-    <title>getbalance - Zcash 4.7.0 RPC Docs</title>
+    <title>getbalance - Zcash 5.0.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,18 +25,20 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.7.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getbalance - Zcash 4.7.0 RPC</h1>
+            <h1>getbalance - Zcash 5.0.0 RPC</h1>
           
             <pre>getbalance ( &#34;(dummy)&#34; minconf includeWatchonly inZat )
 
-Returns the server&#39;s total available balance.
+Returns the wallet&#39;s available transparent balance. This total
+currently includes transparent balances associated with unified
+accounts. Prefer to use `z_getbalanceforaccount` instead.
 
 Arguments:
 1. (dummy)          (string, optional) Remains for backward compatibility. Must be excluded or set to &#34;*&#34; or &#34;&#34;.
