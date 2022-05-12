@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.7.0 RPC Docs - zcrawreceive">
+    <meta name="description" content="Zcash 5.0.0 RPC Docs - zcrawreceive">
     <meta name="author" content="">
 
-    <title>zcrawreceive - Zcash 4.7.0 RPC Docs</title>
+    <title>zcrawreceive - Zcash 5.0.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,26 +25,19 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.7.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>zcrawreceive - Zcash 4.7.0 RPC</h1>
+            <h1>zcrawreceive - Zcash 5.0.0 RPC</h1>
           
-            <pre>zcrawreceive zcsecretkey encryptednote
+            <pre>zcrawreceive is DEPRECATED and will be removed in a future release
 
-DEPRECATED. Decrypts encryptednote and checks if the coin commitments
-are in the blockchain as indicated by the &#34;exists&#34; result.
-
-Output: {
-  &#34;amount&#34;: value,
-  &#34;note&#34;: noteplaintext,
-  &#34;exists&#34;: exists
-}
-
+restart with `-allowdeprecated=zcrawreceive` if you require backward compatibility.
+See https://zcash.github.io/zcash/user/deprecation.html for more information.
 </pre>
             <hr>
           
