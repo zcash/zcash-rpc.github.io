@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.7.0 RPC Docs - listtransactions">
+    <meta name="description" content="Zcash 5.0.0 RPC Docs - listtransactions">
     <meta name="author" content="">
 
-    <title>listtransactions - Zcash 4.7.0 RPC Docs</title>
+    <title>listtransactions - Zcash 5.0.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,18 +25,24 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.7.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>listtransactions - Zcash 4.7.0 RPC</h1>
+            <h1>listtransactions - Zcash 5.0.0 RPC</h1>
           
             <pre>listtransactions ( &#34;dummy&#34; count from includeWatchonly)
 
-Returns up to &#39;count&#39; most recent transactions skipping the first &#39;from&#39; transactions.
+Returns up to &#39;count&#39; of the most recent transactions associated with legacy transparent
+addresses of this wallet, skipping the first &#39;from&#39; transactions.
+
+This API does not provide any information about transactions containing shielded inputs
+or outputs, and should only be used in circumstances where it is necessary to interoperate
+with legacy Bitcoin infrastructure. Use z_listreceivedbyaddress to obtain information about
+the wallet&#39;s shielded transactions.
 
 Arguments:
 1. (dummy)        (string, optional) If set, should be &#34;*&#34; for backwards compatibility.

@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.7.0 RPC Docs - sendtoaddress">
+    <meta name="description" content="Zcash 5.0.0 RPC Docs - sendtoaddress">
     <meta name="author" content="">
 
-    <title>sendtoaddress - Zcash 4.7.0 RPC Docs</title>
+    <title>sendtoaddress - Zcash 5.0.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,21 +25,25 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.7.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>sendtoaddress - Zcash 4.7.0 RPC</h1>
+            <h1>sendtoaddress - Zcash 5.0.0 RPC</h1>
           
             <pre>sendtoaddress &#34;zcashaddress&#34; amount ( &#34;comment&#34; &#34;comment-to&#34; subtractfeefromamount )
 
-Send an amount to a given address. The amount is a real and is rounded to the nearest 0.00000001
+Send an amount to a given transparent address. The amount is interpreted as a real number
+and is rounded to the nearest 0.00000001. This API will only select funds from the transparent
+pool, and all the details of the transaction, including sender, recipient, and amount will be
+permanently visible on the public chain. THIS API PROVIDES NO PRIVACY, and should only be
+used when interoperability with legacy Bitcoin infrastructure is required.
 
 Arguments:
-1. &#34;zcashaddress&#34;  (string, required) The Zcash address to send to.
+1. &#34;zcashaddress&#34;  (string, required) The transparent Zcash address to send to.
 2. &#34;amount&#34;      (numeric, required) The amount in ZEC to send. eg 0.1
 3. &#34;comment&#34;     (string, optional) A comment used to store what the transaction is for. 
                              This is not part of the transaction, just kept in your wallet.

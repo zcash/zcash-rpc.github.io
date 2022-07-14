@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.7.0 RPC Docs - z_sendmany">
+    <meta name="description" content="Zcash 5.0.0 RPC Docs - z_sendmany">
     <meta name="author" content="">
 
-    <title>z_sendmany - Zcash 4.7.0 RPC Docs</title>
+    <title>z_sendmany - Zcash 5.0.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,14 +25,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.7.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_sendmany - Zcash 4.7.0 RPC</h1>
+            <h1>z_sendmany - Zcash 5.0.0 RPC</h1>
           
             <pre>z_sendmany &#34;fromaddress&#34; [{&#34;address&#34;:... ,&#34;amount&#34;:...},...] ( minconf ) ( fee ) ( privacyPolicy )
 
@@ -56,7 +56,7 @@ Arguments:
       &#34;amount&#34;:amount    (numeric, required) The numeric amount in ZEC is the value
       &#34;memo&#34;:memo        (string, optional) If the address is a zaddr, raw data represented in hexadecimal string format
     }, ... ]
-3. minconf               (numeric, optional, default=1) Only use funds confirmed at least this many times.
+3. minconf               (numeric, optional, default=10) Only use funds confirmed at least this many times.
 4. fee                   (numeric, optional, default=0.00001) The fee amount to attach to this transaction.
 5. privacyPolicy         (string, optional, default=&#34;LegacyCompat&#34;) Policy for what information leakage is acceptable.
                          One of the following strings:

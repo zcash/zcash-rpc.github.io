@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 4.7.0 RPC Docs - z_listunspent">
+    <meta name="description" content="Zcash 5.0.0 RPC Docs - z_listunspent">
     <meta name="author" content="">
 
-    <title>z_listunspent - Zcash 4.7.0 RPC Docs</title>
+    <title>z_listunspent - Zcash 5.0.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,20 +25,22 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 4.7.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_listunspent - Zcash 4.7.0 RPC</h1>
+            <h1>z_listunspent - Zcash 5.0.0 RPC</h1>
           
             <pre>z_listunspent ( minconf maxconf includeWatchonly [&#34;zaddr&#34;,...] )
 
-Returns array of unspent shielded notes with between minconf and maxconf (inclusive) confirmations.
-Optionally filter to only include notes sent to specified addresses.
-When minconf is 0, unspent notes with zero confirmations are returned, even though they are not immediately spendable.
+Returns an array of unspent shielded notes with between minconf and maxconf (inclusive)
+confirmations. Results may be optionally filtered to only include notes sent to specified
+addresses.
+When minconf is 0, unspent notes with zero confirmations are returned, even though they are
+not immediately spendable.
 
 Arguments:
 1. minconf          (numeric, optional, default=1) The minimum confirmations to filter
