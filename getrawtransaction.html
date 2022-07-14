@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.0.0 RPC Docs - getrawtransaction">
+    <meta name="description" content="Zcash 5.1.0 RPC Docs - getrawtransaction">
     <meta name="author" content="">
 
-    <title>getrawtransaction - Zcash 5.0.0 RPC Docs</title>
+    <title>getrawtransaction - Zcash 5.1.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,14 +25,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.1.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getrawtransaction - Zcash 5.0.0 RPC</h1>
+            <h1>getrawtransaction - Zcash 5.1.0 RPC</h1>
           
             <pre>getrawtransaction &#34;txid&#34; ( verbose &#34;blockhash&#34; )
 
@@ -58,35 +58,46 @@ Result (if verbose is not set or set to 0):
 
 Result (if verbose &gt; 0):
 {
-  &#34;in_active_chain&#34;: b,   (bool) Whether specified block is in the active chain or not (only present with explicit &#34;blockhash&#34; argument)
-  &#34;hex&#34; : &#34;data&#34;,       (string) The serialized, hex-encoded data for &#39;txid&#39;
-  &#34;txid&#34; : &#34;id&#34;,        (string) The transaction id (same as provided)
-  &#34;authdigest&#34; : &#34;id&#34;,  (string) The transaction&#39;s auth digest. For pre-v5 transactions this will be ffff..ffff
-  &#34;size&#34; : n,             (numeric) The transaction size
-  &#34;version&#34; : n,          (numeric) The version
-  &#34;locktime&#34; : ttt,       (numeric) The lock time
-  &#34;expiryheight&#34; : ttt,   (numeric, optional) The block height after which the transaction expires
-  &#34;vin&#34; : [               (array of json objects)
-     {
-       &#34;txid&#34;: &#34;id&#34;,    (string) The transaction id
+  &#34;in_active_chain&#34;: b,        (bool) Whether specified block is in the active chain or not (only present with explicit &#34;blockhash&#34; argument)
+  &#34;hex&#34; : &#34;data&#34;,              (string) The serialized, hex-encoded data for &#39;txid&#39;
+  &#34;txid&#34; : &#34;id&#34;,               (string) The transaction id (same as provided)
+  &#34;authdigest&#34; : &#34;id&#34;,         (string) The transaction&#39;s auth digest. For pre-v5 transactions this will be ffff..ffff
+  &#34;size&#34; : n,                  (numeric) The transaction size
+  &#34;overwintered&#34; : b,          (bool, optional) Whether the overwintered flag is set
+  &#34;version&#34; : n,               (numeric) The version
+  &#34;versiongroupid&#34; : &#34;hex&#34;,    (string, optional) The version group ID
+  &#34;locktime&#34; : ttt,            (numeric) The lock time
+  &#34;expiryheight&#34; : ttt,        (numeric, optional) The block height after which the transaction expires
+  &#34;vin&#34; : [                    (array of json objects)
+     {                    (coinbase transactions)
+       &#34;coinbase&#34;: &#34;hex&#34;, (string) The coinbase scriptSig as hex
+       &#34;sequence&#34;: n      (numeric) The script sequence number
+     },
+     {                    (non-coinbase transactions)
+       &#34;txid&#34;: &#34;id&#34;,      (string) The transaction id
        &#34;vout&#34;: n,         (numeric) 
        &#34;scriptSig&#34;: {     (json object) The script
-         &#34;asm&#34;: &#34;asm&#34;,  (string) asm
-         &#34;hex&#34;: &#34;hex&#34;   (string) hex
+         &#34;asm&#34;: &#34;asm&#34;,    (string) asm
+         &#34;hex&#34;: &#34;hex&#34;     (string) hex
        },
        &#34;sequence&#34;: n      (numeric) The script sequence number
+       &#34;value&#34;: n         (numeric, optional) The value of the output being spent in ZEC
+       &#34;valueSat&#34;: n      (numeric, optional) The value of the output being spent, in zats
+       &#34;address&#34;: n       (string, optional) The address of the output being spent
      }
      ,...
   ],
   &#34;vout&#34; : [              (array of json objects)
      {
        &#34;value&#34; : x.xxx,            (numeric) The value in ZEC
+       &#34;valueZat&#34; : n,             (numeric) The value in zats
+       &#34;valueSat&#34; : n,             (numeric) The value in zats
        &#34;n&#34; : n,                    (numeric) index
        &#34;scriptPubKey&#34; : {          (json object)
-         &#34;asm&#34; : &#34;asm&#34;,          (string) the asm
-         &#34;hex&#34; : &#34;hex&#34;,          (string) the hex
+         &#34;asm&#34; : &#34;asm&#34;,            (string) the asm
+         &#34;hex&#34; : &#34;hex&#34;,            (string) the hex
          &#34;reqSigs&#34; : n,            (numeric) The required sigs
-         &#34;type&#34; : &#34;pubkeyhash&#34;,  (string) The type, eg &#39;pubkeyhash&#39;
+         &#34;type&#34; : &#34;pubkeyhash&#34;,    (string) The type, eg &#39;pubkeyhash&#39;
          &#34;addresses&#34; : [           (json array of string)
            &#34;zcashaddress&#34;          (string) Zcash address
            ,...
@@ -98,8 +109,10 @@ Result (if verbose &gt; 0):
   &#34;vjoinsplit&#34; : [        (array of json objects, only for version &gt;= 2)
      {
        &#34;vpub_old&#34; : x.xxx,         (numeric) public input value in ZEC
+       &#34;vpub_oldZat&#34; : n,          (numeric) public input value in zats
        &#34;vpub_new&#34; : x.xxx,         (numeric) public output value in ZEC
-       &#34;anchor&#34; : &#34;hex&#34;,         (string) the anchor
+       &#34;vpub_newZat&#34; : n,          (numeric) public output value in zats
+       &#34;anchor&#34; : &#34;hex&#34;,           (string) the anchor
        &#34;nullifiers&#34; : [            (json array of string)
          &#34;hex&#34;                     (string) input note nullifier
          ,...
@@ -108,13 +121,13 @@ Result (if verbose &gt; 0):
          &#34;hex&#34;                     (string) output note commitment
          ,...
        ],
-       &#34;onetimePubKey&#34; : &#34;hex&#34;,  (string) the onetime public key used to encrypt the ciphertexts
-       &#34;randomSeed&#34; : &#34;hex&#34;,     (string) the random seed
+       &#34;onetimePubKey&#34; : &#34;hex&#34;,    (string) the onetime public key used to encrypt the ciphertexts
+       &#34;randomSeed&#34; : &#34;hex&#34;,       (string) the random seed
        &#34;macs&#34; : [                  (json array of string)
          &#34;hex&#34;                     (string) input note MAC
          ,...
        ],
-       &#34;proof&#34; : &#34;hex&#34;,          (string) the zero-knowledge proof
+       &#34;proof&#34; : &#34;hex&#34;,            (string) the zero-knowledge proof
        &#34;ciphertexts&#34; : [           (json array of string)
          &#34;hex&#34;                     (string) output note ciphertext
          ,...
@@ -122,10 +135,62 @@ Result (if verbose &gt; 0):
      }
      ,...
   ],
-  &#34;blockhash&#34; : &#34;hash&#34;,   (string) the block hash
-  &#34;confirmations&#34; : n,      (numeric) The confirmations
-  &#34;time&#34; : ttt,             (numeric) The transaction time in seconds since epoch (Jan 1 1970 GMT)
-  &#34;blocktime&#34; : ttt         (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
+  &#34;valueBalance&#34; : x.xxx,  (numeric, optional) The net value of Sapling Spends minus Outputs in ZEC
+  &#34;valueBalanceZat&#34; : n,   (numeric, optional) The net value of Sapling Spends minus Outputs in zatoshis
+  &#34;vShieldedSpend&#34; : [     (array of json objects, only for version &gt;= 3)
+     {
+       &#34;cv&#34; : &#34;hex&#34;,           (string) Value commitment to the input note
+       &#34;anchor&#34; : &#34;hex&#34;,       (string) Merkle root of the Sapling note commitment tree
+       &#34;nullifier&#34; : &#34;hex&#34;,    (string) The nullifier of the input note
+       &#34;rk&#34; : &#34;hex&#34;,           (string) The randomized public key for spendAuthSig
+       &#34;proof&#34; : &#34;hex&#34;,        (string) A zero-knowledge proof using the Sapling Spend circuit
+       &#34;spendAuthSig&#34; : &#34;hex&#34;, (string) A signature authorizing this Spend
+     }
+     ,...
+  ],
+  &#34;vShieldedOutput&#34; : [            (array of json objects, only for version &gt;= 3)
+     {
+       &#34;cv&#34; : &#34;hex&#34;,             (string) Value commitment to the input note
+       &#34;cmu&#34; : &#34;hex&#34;,            (string) The u-coordinate of the note commitment for the output note
+       &#34;ephemeralKey&#34; : &#34;hex&#34;,   (string) A Jubjub public key
+       &#34;encCiphertext&#34; : &#34;hex&#34;,  (string) The output note encrypted to the recipient
+       &#34;outCiphertext&#34; : &#34;hex&#34;,  (string) A ciphertext enabling the sender to recover the output note
+       &#34;proof&#34; : &#34;hex&#34;,          (string) A zero-knowledge proof using the Sapling Output circuit
+     }
+     ,...
+  ],
+  &#34;bindingSig&#34; : &#34;hash&#34;,          (string, optional) The Sapling binding sig
+  &#34;orchard&#34; : {                   (JSON object with Orchard-specific information)
+     &#34;actions&#34; : [                (JSON array of objects)
+       {
+         &#34;cv&#34; : &#34;hex&#34;,            (string) A value commitment to the net value of the input note minus the output note
+         &#34;nullifier&#34; : &#34;hex&#34;,     (string) The nullifier of the input note
+         &#34;rk&#34; : &#34;hex&#34;,            (string) The randomized validating key for spendAuthSig
+         &#34;cmx&#34; : &#34;hex&#34;,           (string) The x-coordinate of the note commitment for the output note
+         &#34;ephemeralKey&#34; : &#34;hex&#34;,  (string) An encoding of an ephemeral Pallas public key
+         &#34;encCiphertext&#34; : &#34;hex&#34;, (string) The output note encrypted to the recipient
+         &#34;outCiphertext&#34; : &#34;hex&#34;, (string) A ciphertext enabling the sender to recover the output note
+         &#34;spendAuthSig&#34; : &#34;hex&#34;   (string) A signature authorizing the spend in this Action
+       }
+       ,...
+     ],
+     &#34;valueBalance&#34; : x.xxx,      (numeric, optional) The net value of Orchard Actions in ZEC
+     &#34;valueBalanceZat&#34; : n,       (numeric, optional) The net value of Orchard Actions in zatoshis
+     &#34;flags&#34; : { (optional)
+       &#34;enableSpends&#34;  : true|false (bool)
+       &#34;enableOutputs&#34; : true|false (bool)
+     },
+     &#34;anchor&#34; : &#34;hex&#34;,          (string, optional) A root of the Orchard note commitment tree at some block height in the past
+     &#34;proof&#34; : &#34;hex&#34;,           (string, optional) Encoding of aggregated zk-SNARK proofs for Orchard Actions
+     &#34;bindingSig&#34; : &#34;hex&#34;       (string, optional) An Orchard binding signature on the SIGHASH transaction hash
+  },
+  &#34;joinSplitPubKey&#34; : &#34;hex&#34;,      (string, optional) An encoding of a JoinSplitSig public validating key
+  &#34;joinSplitSig&#34; : &#34;hex&#34;,         (string, optional) The Sprout binding signature
+  &#34;blockhash&#34; : &#34;hash&#34;,           (string) the block hash
+  &#34;height&#34; : n,                   (numeric) the block height
+  &#34;confirmations&#34; : n,            (numeric) The confirmations
+  &#34;time&#34; : ttt,                   (numeric) The transaction time in seconds since epoch (Jan 1 1970 GMT)
+  &#34;blocktime&#34; : ttt               (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
 }
 
 Examples:
