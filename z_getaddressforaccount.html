@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.0.0 RPC Docs - z_getaddressforaccount">
+    <meta name="description" content="Zcash 5.1.0 RPC Docs - z_getaddressforaccount">
     <meta name="author" content="">
 
-    <title>z_getaddressforaccount - Zcash 5.0.0 RPC Docs</title>
+    <title>z_getaddressforaccount - Zcash 5.1.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,14 +25,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.1.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_getaddressforaccount - Zcash 5.0.0 RPC</h1>
+            <h1>z_getaddressforaccount - Zcash 5.1.0 RPC</h1>
           
             <pre>z_getaddressforaccount account ( [&#34;receiver_type&#34;, ...] diversifier_index )
 
@@ -65,7 +65,7 @@ Result:
 Examples:
 &gt; zcash-cli z_getaddressforaccount 4
 &gt; zcash-cli z_getaddressforaccount 4 &#39;[]&#39; 1
-&gt; zcash-cli z_getaddressforaccount 4 &#39;[&#34;transparent&#34;,&#34;sapling&#34;,&#34;orchard&#34;]&#39; 1
+&gt; zcash-cli z_getaddressforaccount 4 &#39;[&#34;p2pkh&#34;,&#34;sapling&#34;,&#34;orchard&#34;]&#39; 1
 &gt; curl --user myusername --data-binary &#39;{&#34;jsonrpc&#34;: &#34;1.0&#34;, &#34;id&#34;:&#34;curltest&#34;, &#34;method&#34;: &#34;z_getaddressforaccount&#34;, &#34;params&#34;: [4] }&#39; -H &#39;content-type: text/plain;&#39; http://127.0.0.1:8232/
 
 </pre>

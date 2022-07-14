@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.0.0 RPC Docs - gettransaction">
+    <meta name="description" content="Zcash 5.1.0 RPC Docs - gettransaction">
     <meta name="author" content="">
 
-    <title>gettransaction - Zcash 5.0.0 RPC Docs</title>
+    <title>gettransaction - Zcash 5.1.0 RPC Docs</title>
 
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
@@ -25,18 +25,20 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.0.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.1.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>gettransaction - Zcash 5.0.0 RPC</h1>
+            <h1>gettransaction - Zcash 5.1.0 RPC</h1>
           
             <pre>gettransaction &#34;txid&#34; ( includeWatchonly )
 
-Returns detailed information about in-wallet transaction &lt;txid&gt;.
+Returns detailed information about in-wallet transaction &lt;txid&gt;. This does not
+include complete information about shielded components of the transaction; to obtain
+details about shielded components of the transaction use `z_viewtransaction`.
 
 Arguments:
 1. &#34;txid&#34;    (string, required) The transaction id
@@ -64,7 +66,7 @@ Result:
     }
     ,...
   ],
-  &#34;vjoinsplit&#34; : [
+  &#34;vjoinsplit&#34; : (DEPRECATED) [
     {
       &#34;anchor&#34; : &#34;treestateref&#34;,          (string) Merkle root of note commitment tree
       &#34;nullifiers&#34; : [ string, ... ]      (string) Nullifiers of input notes
