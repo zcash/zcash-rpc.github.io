@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.2.0 RPC Docs - getblock">
+    <meta name="description" content="Zcash 5.3.0 RPC Docs - getblock">
     <meta name="author" content="">
-    <title>getblock - Zcash 5.2.0 RPC Docs</title>
+    <title>getblock - Zcash 5.3.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,14 +23,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.2.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.3.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getblock - Zcash 5.2.0 RPC</h1>
+            <h1>getblock - Zcash 5.3.0 RPC</h1>
           
             <pre>getblock &#34;hash|height&#34; ( verbosity )
 
@@ -54,9 +54,14 @@ Result (for verbosity = 1):
   &#34;version&#34; : n,         (numeric) The block version
   &#34;merkleroot&#34; : &#34;xxxx&#34;, (string) The merkle root
   &#34;finalsaplingroot&#34; : &#34;xxxx&#34;, (string) The root of the Sapling commitment tree after applying this block
-  &#34;finalorchardroot&#34; : &#34;xxxx&#34;, (string) The root of the Orchard commitment tree after applying this block.
-                                        Omitted for blocks prior to NU5 activation. This will be the null
-                                        hash if this block has never been connected to a main chain.
+  &#34;finalorchardroot&#34; : &#34;xxxx&#34;, (string, optional) The root of the Orchard commitment tree after
+                               applying this block. Omitted for blocks prior to NU5 activation. This
+                               will be the null hash if this block has never been connected to a
+                               main chain.
+                               NB: The serialized representation of this field returned by this method
+                                   was byte-flipped relative to its representation in the `getrawtransaction`
+                                   output in prior releases up to and including v5.2.0. This has now been
+                                   rectified.
   &#34;tx&#34; : [               (array of string) The transaction ids
      &#34;transactionid&#34;     (string) The transaction id
      ,...
