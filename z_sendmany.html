@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.2.0 RPC Docs - z_sendmany">
+    <meta name="description" content="Zcash 5.3.0 RPC Docs - z_sendmany">
     <meta name="author" content="">
-    <title>z_sendmany - Zcash 5.2.0 RPC Docs</title>
+    <title>z_sendmany - Zcash 5.3.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,31 +23,33 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.2.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.3.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_sendmany - Zcash 5.2.0 RPC</h1>
+            <h1>z_sendmany - Zcash 5.3.0 RPC</h1>
           
             <pre>z_sendmany &#34;fromaddress&#34; [{&#34;address&#34;:... ,&#34;amount&#34;:...},...] ( minconf ) ( fee ) ( privacyPolicy )
 
 Send multiple times. Amounts are decimal numbers with at most 8 digits of precision.
 Change generated from one or more transparent addresses flows to a new transparent
-address, while change generated from a shielded address returns to itself.
-When sending coinbase UTXOs to a shielded address, change is not allowed.
-The entire value of the UTXO(s) must be consumed.
-Before Sapling activates, the maximum number of zaddr outputs is 54 due to transaction size limits.
-
+address, while change generated from a legacy Sapling address returns to itself.
+When sending from a unified address, change is returned to the internal-only address
+for the associated unified account.
+When spending coinbase UTXOs, only shielded recipients are permitted and change is not allowed;
+the entire value of the coinbase UTXO(s) must be consumed.
 
 Arguments:
 1. &#34;fromaddress&#34;         (string, required) The transparent or shielded address to send the funds from.
                            The following special strings are also accepted:
                                - &#34;ANY_TADDR&#34;: Select non-coinbase UTXOs from any transparent addresses belonging to the wallet.
                                               Use z_shieldcoinbase to shield coinbase UTXOs from multiple transparent addresses.
-                           If the address is a UA, transfer from the most recent value pool with sufficient funds
+                           If a unified address is provided for this argument, the TXOs to be spent will be selected from those
+                           associated with the account corresponding to that unified address, from value pools corresponding
+                           to the receivers included in the UA.
 2. &#34;amounts&#34;             (array, required) An array of json objects representing the amounts to send.
     [{
       &#34;address&#34;:address  (string, required) The address is a taddr, zaddr, or Unified Address
