@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.0 RPC Docs - z_sendmany">
+    <meta name="description" content="Zcash 5.3.2 RPC Docs - z_sendmany">
     <meta name="author" content="">
-    <title>z_sendmany - Zcash 5.3.0 RPC Docs</title>
+    <title>z_sendmany - Zcash 5.3.2 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,22 +23,22 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_sendmany - Zcash 5.3.0 RPC</h1>
+            <h1>z_sendmany - Zcash 5.3.2 RPC</h1>
           
             <pre>z_sendmany &#34;fromaddress&#34; [{&#34;address&#34;:... ,&#34;amount&#34;:...},...] ( minconf ) ( fee ) ( privacyPolicy )
 
-Send multiple times. Amounts are decimal numbers with at most 8 digits of precision.
-Change generated from one or more transparent addresses flows to a new transparent
-address, while change generated from a legacy Sapling address returns to itself.
-When sending from a unified address, change is returned to the internal-only address
-for the associated unified account.
+Send a transaction with multiple recipients. Amounts are decimal numbers with at
+most 8 digits of precision. Change generated from one or more transparent
+addresses flows to a new transparent address, while change generated from a
+legacy Sapling address returns to itself. When sending from a unified address,
+change is returned to the internal-only address for the associated unified account.
 When spending coinbase UTXOs, only shielded recipients are permitted and change is not allowed;
 the entire value of the coinbase UTXO(s) must be consumed.
 

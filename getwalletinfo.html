@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.0 RPC Docs - getwalletinfo">
+    <meta name="description" content="Zcash 5.3.2 RPC Docs - getwalletinfo">
     <meta name="author" content="">
-    <title>getwalletinfo - Zcash 5.3.0 RPC Docs</title>
+    <title>getwalletinfo - Zcash 5.3.2 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,26 +23,39 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getwalletinfo - Zcash 5.3.0 RPC</h1>
+            <h1>getwalletinfo - Zcash 5.3.2 RPC</h1>
           
-            <pre>getwalletinfo
+            <pre>getwalletinfo ( asOfHeight )
 Returns wallet state information.
+
+Arguments:
+1. asOfHeight       (numeric, optional, default=-1) Execute the query as if it
+                    were run when the blockchain was at the height specified by
+                    this argument. The default is to use the entire blockchain
+                    that the node is aware of. -1 can be used as in other RPC
+                    calls to indicate the current height (including the
+                    mempool), but this does not support negative values in
+                    general. A “future” height will fall back to the current
+                    height. Any explicit value will cause the mempool to be
+                    ignored, meaning no unconfirmed tx will be considered.
 
 Result:
 {
   &#34;walletversion&#34;: xxxxx,     (numeric) the wallet version
   &#34;balance&#34;: xxxxxxx,         (numeric) the total confirmed transparent balance of the wallet in ZEC
-  &#34;unconfirmed_balance&#34;: xxx, (numeric) the total unconfirmed transparent balance of the wallet in ZEC
+  &#34;unconfirmed_balance&#34;: xxx, (numeric, optional) the total unconfirmed transparent balance of the wallet in ZEC.
+                              Not included if `asOfHeight` is specified.
   &#34;immature_balance&#34;: xxxxxx, (numeric) the total immature transparent balance of the wallet in ZEC
   &#34;shielded_balance&#34;: xxxxxxx,  (numeric) the total confirmed shielded balance of the wallet in ZEC
-  &#34;shielded_unconfirmed_balance&#34;: xxx, (numeric) the total unconfirmed shielded balance of the wallet in ZEC
+  &#34;shielded_unconfirmed_balance&#34;: xxx, (numeric, optional) the total unconfirmed shielded balance of the wallet in ZEC.
+                              Not included if `asOfHeight` is specified.
   &#34;txcount&#34;: xxxxxxx,         (numeric) the total number of transactions in the wallet
   &#34;keypoololdest&#34;: xxxxxx,    (numeric) the timestamp (seconds since GMT epoch) of the oldest pre-generated key in the key pool
   &#34;keypoolsize&#34;: xxxx,        (numeric) how many new keys are pre-generated

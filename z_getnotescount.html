@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.0 RPC Docs - z_getnotescount">
+    <meta name="description" content="Zcash 5.3.2 RPC Docs - z_getnotescount">
     <meta name="author" content="">
-    <title>z_getnotescount - Zcash 5.3.0 RPC Docs</title>
+    <title>z_getnotescount - Zcash 5.3.2 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,21 +23,31 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_getnotescount - Zcash 5.3.0 RPC</h1>
+            <h1>z_getnotescount - Zcash 5.3.2 RPC</h1>
           
-            <pre>z_getnotescount
+            <pre>z_getnotescount ( minconf asOfHeight )
+
+Returns the number of notes available in the wallet for each shielded value pool.
 
 Arguments:
 1. minconf      (numeric, optional, default=1) Only include notes in transactions confirmed at least this many times.
-
-Returns the number of notes available in the wallet for each shielded value pool.
+2. asOfHeight       (numeric, optional, default=-1) Execute the query as if it
+                    were run when the blockchain was at the height specified by
+                    this argument. The default is to use the entire blockchain
+                    that the node is aware of. -1 can be used as in other RPC
+                    calls to indicate the current height (including the
+                    mempool), but this does not support negative values in
+                    general. A “future” height will fall back to the current
+                    height. Any explicit value will cause the mempool to be
+                    ignored, meaning no unconfirmed tx will be considered.
+                    `minconf` must be at least 1 when `asOfHeight` is provided.
 
 Result:
 {

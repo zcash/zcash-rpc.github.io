@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.0 RPC Docs - gettransaction">
+    <meta name="description" content="Zcash 5.3.2 RPC Docs - gettransaction">
     <meta name="author" content="">
-    <title>gettransaction - Zcash 5.3.0 RPC Docs</title>
+    <title>gettransaction - Zcash 5.3.2 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,16 +23,16 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>gettransaction - Zcash 5.3.0 RPC</h1>
+            <h1>gettransaction - Zcash 5.3.2 RPC</h1>
           
-            <pre>gettransaction &#34;txid&#34; ( includeWatchonly )
+            <pre>gettransaction &#34;txid&#34; ( includeWatchonly verbose asOfHeight )
 
 Returns detailed information about in-wallet transaction &lt;txid&gt;. This does not
 include complete information about shielded components of the transaction; to obtain
@@ -40,7 +40,17 @@ details about shielded components of the transaction use `z_viewtransaction`.
 
 Arguments:
 1. &#34;txid&#34;    (string, required) The transaction id
-2. &#34;includeWatchonly&#34;    (bool, optional, default=false) Whether to include watchonly addresses in balance calculation and details[]
+2. includeWatchonly    (bool, optional, default=false) Whether to include watchonly addresses in balance calculation and details[]
+3. verbose       (bool, optional, default=false) Whether to include a `decoded` field containing the decoded transaction (equivalent to RPC decoderawtransaction). Currently, only the default value is supported.
+4. asOfHeight       (numeric, optional, default=-1) Execute the query as if it
+                    were run when the blockchain was at the height specified by
+                    this argument. The default is to use the entire blockchain
+                    that the node is aware of. -1 can be used as in other RPC
+                    calls to indicate the current height (including the
+                    mempool), but this does not support negative values in
+                    general. A “future” height will fall back to the current
+                    height. Any explicit value will cause the mempool to be
+                    ignored, meaning no unconfirmed tx will be considered.
 
 Result:
 {
@@ -79,6 +89,8 @@ Result:
   &#34;hex&#34; : &#34;data&#34;         (string) Raw data for transaction
 }
 
+Bitcoin compatibility:
+Compatible up to three arguments, but can only use the default value for `verbose`.
 Examples:
 &gt; zcash-cli gettransaction &#34;1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d&#34;
 &gt; zcash-cli gettransaction &#34;1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d&#34; true

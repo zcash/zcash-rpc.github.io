@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.0 RPC Docs - z_getmigrationstatus">
+    <meta name="description" content="Zcash 5.3.2 RPC Docs - z_getmigrationstatus">
     <meta name="author" content="">
-    <title>z_getmigrationstatus - Zcash 5.3.0 RPC Docs</title>
+    <title>z_getmigrationstatus - Zcash 5.3.2 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,20 +23,31 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_getmigrationstatus - Zcash 5.3.0 RPC</h1>
+            <h1>z_getmigrationstatus - Zcash 5.3.2 RPC</h1>
           
-            <pre>z_getmigrationstatus
+            <pre>z_getmigrationstatus ( asOfHeight )
 Returns information about the status of the Sprout to Sapling migration.
 Note: A transaction is defined as finalized if it has at least ten confirmations.
 Also, it is possible that manually created transactions involving this wallet
 will be included in the result.
+
+Arguments:
+1. asOfHeight       (numeric, optional, default=-1) Execute the query as if it
+                    were run when the blockchain was at the height specified by
+                    this argument. The default is to use the entire blockchain
+                    that the node is aware of. -1 can be used as in other RPC
+                    calls to indicate the current height (including the
+                    mempool), but this does not support negative values in
+                    general. A “future” height will fall back to the current
+                    height. Any explicit value will cause the mempool to be
+                    ignored, meaning no unconfirmed tx will be considered.
 
 Result:
 {
