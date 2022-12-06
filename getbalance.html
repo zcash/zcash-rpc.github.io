@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.0 RPC Docs - getbalance">
+    <meta name="description" content="Zcash 5.3.2 RPC Docs - getbalance">
     <meta name="author" content="">
-    <title>getbalance - Zcash 5.3.0 RPC Docs</title>
+    <title>getbalance - Zcash 5.3.2 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,16 +23,16 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getbalance - Zcash 5.3.0 RPC</h1>
+            <h1>getbalance - Zcash 5.3.2 RPC</h1>
           
-            <pre>getbalance ( &#34;(dummy)&#34; minconf includeWatchonly inZat )
+            <pre>getbalance ( &#34;(dummy)&#34; minconf includeWatchonly inZat asOfHeight )
 
 Returns the wallet&#39;s available transparent balance. This total
 currently includes transparent balances associated with unified
@@ -40,13 +40,25 @@ accounts. Prefer to use `z_getbalanceforaccount` instead.
 
 Arguments:
 1. (dummy)          (string, optional) Remains for backward compatibility. Must be excluded or set to &#34;*&#34; or &#34;&#34;.
-2. minconf          (numeric, optional, default=1) Only include transactions confirmed at least this many times.
+2. minconf          (numeric, optional, default=0) Only include transactions confirmed at least this many times.
 3. includeWatchonly (bool, optional, default=false) Also include balance in watchonly addresses (see &#39;importaddress&#39;)
 4. inZat            (bool, optional, default=false) Get the result amount in zatoshis (as an integer).
+5. asOfHeight       (numeric, optional, default=-1) Execute the query as if it
+                    were run when the blockchain was at the height specified by
+                    this argument. The default is to use the entire blockchain
+                    that the node is aware of. -1 can be used as in other RPC
+                    calls to indicate the current height (including the
+                    mempool), but this does not support negative values in
+                    general. A “future” height will fall back to the current
+                    height. Any explicit value will cause the mempool to be
+                    ignored, meaning no unconfirmed tx will be considered.
+                    `minconf` must be at least 1 when `asOfHeight` is provided.
 
 Result:
 amount              (numeric) The total amount in ZEC(or zatoshis if inZat is true) received.
 
+Bitcoin compatibility:
+Compatible with up to three arguments.
 Examples:
 
 The total amount in the wallet
