@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.2 RPC Docs - z_mergetoaddress">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - z_mergetoaddress">
     <meta name="author" content="">
-    <title>z_mergetoaddress - Zcash 5.3.2 RPC Docs</title>
+    <title>z_mergetoaddress - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,16 +23,16 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_mergetoaddress - Zcash 5.3.2 RPC</h1>
+            <h1>z_mergetoaddress - Zcash 5.5.0 RPC</h1>
           
-            <pre>z_mergetoaddress [&#34;fromaddress&#34;, ... ] &#34;toaddress&#34; ( fee ) ( transparent_limit ) ( shielded_limit ) ( memo )
+            <pre>z_mergetoaddress [&#34;fromaddress&#34;, ... ] &#34;toaddress&#34; ( fee ) ( transparent_limit ) ( shielded_limit ) ( memo ) ( privacyPolicy )
 
 Merge multiple UTXOs and notes into a single UTXO or note.  Coinbase UTXOs are ignored; use `z_shieldcoinbase`
 to combine those into a single note.
@@ -59,10 +59,31 @@ Arguments:
       ,...
     ]
 2. &#34;toaddress&#34;           (string, required) The taddr or zaddr to send the funds to.
-3. fee                   (numeric, optional, default=0.00001) The fee amount to attach to this transaction.
+3. fee                   (numeric, optional, default=null) The fee amount in ZEC to attach to this transaction. The default behavior
+                         is to use a fee calculated according to ZIP 317.
 4. transparent_limit     (numeric, optional, default=50) Limit on the maximum number of UTXOs to merge.  Set to 0 to use as many as will fit in the transaction.
 5. shielded_limit        (numeric, optional, default=20 Sprout or 200 Sapling Notes) Limit on the maximum number of notes to merge.  Set to 0 to merge as many as will fit in the transaction.
 6. &#34;memo&#34;                (string, optional) Encoded as hex. When toaddress is a zaddr, this will be stored in the memo field of the new note.
+7. privacyPolicy         (string, optional, default=&#34;LegacyCompat&#34;) Policy for what information leakage is acceptable.
+                         One of the following strings:
+                               - &#34;FullPrivacy&#34;: Only allow fully-shielded transactions (involving a single shielded value pool).
+                               - &#34;LegacyCompat&#34;: If the transaction involves any Unified Addresses, this is equivalent to
+                                 &#34;FullPrivacy&#34;. Otherwise, this is equivalent to &#34;AllowFullyTransparent&#34;.
+                               - &#34;AllowRevealedAmounts&#34;: Allow funds to cross between shielded value pools, revealing the amount
+                                 that crosses pools.
+                               - &#34;AllowRevealedRecipients&#34;: Allow transparent recipients. This also implies revealing
+                                 information described under &#34;AllowRevealedAmounts&#34;.
+                               - &#34;AllowRevealedSenders&#34;: Allow transparent funds to be spent, revealing the sending
+                                 addresses and amounts. This implies revealing information described under &#34;AllowRevealedAmounts&#34;.
+                               - &#34;AllowFullyTransparent&#34;: Allow transaction to both spend transparent funds and have
+                                 transparent recipients. This implies revealing information described under &#34;AllowRevealedSenders&#34;
+                                 and &#34;AllowRevealedRecipients&#34;.
+                               - &#34;AllowLinkingAccountAddresses&#34;: Allow selecting transparent coins from the full account,
+                                 rather than just the funds sent to the transparent receiver in the provided Unified Address.
+                                 This implies revealing information described under &#34;AllowRevealedSenders&#34;.
+                               - &#34;NoPrivacy&#34;: Allow the transaction to reveal any information necessary to create it.
+                                 This implies revealing information described under &#34;AllowFullyTransparent&#34; and
+                                 &#34;AllowLinkingAccountAddresses&#34;.
 
 Result:
 {
@@ -371,9 +392,6 @@ Examples:
                   <a href="estimatefee.html">estimatefee</a>
                   <br>
                 
-                  <a href="estimatepriority.html">estimatepriority</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -400,9 +418,6 @@ Examples:
                   <br>
                 
                   <a href="dumpprivkey.html">dumpprivkey</a>
-                  <br>
-                
-                  <a href="dumpwallet.html">dumpwallet</a>
                   <br>
                 
                   <a href="encryptwallet.html">encryptwallet</a>
@@ -568,15 +583,6 @@ Examples:
                   <br>
                 
                   <a href="zcbenchmark.html">zcbenchmark</a>
-                  <br>
-                
-                  <a href="zcrawjoinsplit.html">zcrawjoinsplit</a>
-                  <br>
-                
-                  <a href="zcrawkeygen.html">zcrawkeygen</a>
-                  <br>
-                
-                  <a href="zcrawreceive.html">zcrawreceive</a>
                   <br>
                 
                   <a href="zcsamplejoinsplit.html">zcsamplejoinsplit</a>

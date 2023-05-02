@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.2 RPC Docs - prioritisetransaction">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - prioritisetransaction">
     <meta name="author" content="">
-    <title>prioritisetransaction - Zcash 5.3.2 RPC Docs</title>
+    <title>prioritisetransaction - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,25 +23,23 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>prioritisetransaction - Zcash 5.3.2 RPC</h1>
+            <h1>prioritisetransaction - Zcash 5.5.0 RPC</h1>
           
             <pre>prioritisetransaction &lt;txid&gt; &lt;priority delta&gt; &lt;fee delta&gt;
 Accepts the transaction into mined blocks at a higher (or lower) priority
 
 Arguments:
 1. &#34;txid&#34;       (string, required) The transaction id.
-2. priority delta (numeric, required) The priority to add or subtract.
-                  The transaction selection algorithm considers the tx as it would have a higher priority.
-                  (priority of a transaction is calculated: coinage * value_in_satoshis / txsize) 
-3. fee delta      (numeric, required) The fee value (in satoshis) to add (or subtract, if negative).
-                  The fee is not actually paid, only the algorithm for selecting transactions into a block
+2. priority_delta (numeric, optional) Fee-independent priority adjustment. Not supported, so must be zero or null.
+3. fee_delta      (numeric, required) The fee value (in zatoshis) to add (or subtract, if negative).
+                  The modified fee is not actually paid, only the algorithm for selecting transactions into a block
                   considers the transaction as it would have paid a higher (or lower) fee.
 
 Result
@@ -341,9 +339,6 @@ Examples:
                   <a href="estimatefee.html">estimatefee</a>
                   <br>
                 
-                  <a href="estimatepriority.html">estimatepriority</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -370,9 +365,6 @@ Examples:
                   <br>
                 
                   <a href="dumpprivkey.html">dumpprivkey</a>
-                  <br>
-                
-                  <a href="dumpwallet.html">dumpwallet</a>
                   <br>
                 
                   <a href="encryptwallet.html">encryptwallet</a>
@@ -538,15 +530,6 @@ Examples:
                   <br>
                 
                   <a href="zcbenchmark.html">zcbenchmark</a>
-                  <br>
-                
-                  <a href="zcrawjoinsplit.html">zcrawjoinsplit</a>
-                  <br>
-                
-                  <a href="zcrawkeygen.html">zcrawkeygen</a>
-                  <br>
-                
-                  <a href="zcrawreceive.html">zcrawreceive</a>
                   <br>
                 
                   <a href="zcsamplejoinsplit.html">zcsamplejoinsplit</a>

@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.2 RPC Docs - getblocktemplate">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - getblocktemplate">
     <meta name="author" content="">
-    <title>getblocktemplate - Zcash 5.3.2 RPC Docs</title>
+    <title>getblocktemplate - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,14 +23,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getblocktemplate - Zcash 5.3.2 RPC</h1>
+            <h1>getblocktemplate - Zcash 5.5.0 RPC</h1>
           
             <pre>getblocktemplate ( &#34;jsonrequestobject&#34; )
 
@@ -80,7 +80,7 @@ Result:
              n                       (numeric) transactions before this one (by 1-based index in &#39;transactions&#39; list) that must be present in the final block if this one is
              ,...
          ],
-         &#34;fee&#34;: n,                   (numeric) difference in value between transaction inputs and outputs (in Satoshis); for coinbase transactions, this is a negative Number of the total collected block fees (ie, not including the block subsidy); if key is not present, fee is unknown and clients MUST NOT assume there isn&#39;t one
+         &#34;fee&#34;: n,                   (numeric) difference in value between transaction inputs and outputs (in zatoshis); for coinbase transactions, this is a negative Number of the total collected block fees (i.e., not including the block subsidy); if key is not present, fee is unknown and clients MUST NOT assume there isn&#39;t one
          &#34;sigops&#34; : n,               (numeric) total number of SigOps, as counted for purposes of block limits; if key is not present, sigop count is unknown and clients MUST NOT assume there aren&#39;t any
          &#34;required&#34; : true|false     (boolean) if provided and true, this transaction must be in the final block
       }
@@ -396,9 +396,6 @@ Examples:
                   <a href="estimatefee.html">estimatefee</a>
                   <br>
                 
-                  <a href="estimatepriority.html">estimatepriority</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -425,9 +422,6 @@ Examples:
                   <br>
                 
                   <a href="dumpprivkey.html">dumpprivkey</a>
-                  <br>
-                
-                  <a href="dumpwallet.html">dumpwallet</a>
                   <br>
                 
                   <a href="encryptwallet.html">encryptwallet</a>
@@ -593,15 +587,6 @@ Examples:
                   <br>
                 
                   <a href="zcbenchmark.html">zcbenchmark</a>
-                  <br>
-                
-                  <a href="zcrawjoinsplit.html">zcrawjoinsplit</a>
-                  <br>
-                
-                  <a href="zcrawkeygen.html">zcrawkeygen</a>
-                  <br>
-                
-                  <a href="zcrawreceive.html">zcrawreceive</a>
                   <br>
                 
                   <a href="zcsamplejoinsplit.html">zcsamplejoinsplit</a>

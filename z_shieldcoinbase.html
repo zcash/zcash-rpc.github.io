@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.2 RPC Docs - z_shieldcoinbase">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - z_shieldcoinbase">
     <meta name="author" content="">
-    <title>z_shieldcoinbase - Zcash 5.3.2 RPC Docs</title>
+    <title>z_shieldcoinbase - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,16 +23,16 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_shieldcoinbase - Zcash 5.3.2 RPC</h1>
+            <h1>z_shieldcoinbase - Zcash 5.5.0 RPC</h1>
           
-            <pre>z_shieldcoinbase &#34;fromaddress&#34; &#34;tozaddress&#34; ( fee ) ( limit )
+            <pre>z_shieldcoinbase &#34;fromaddress&#34; &#34;tozaddress&#34; ( fee ) ( limit ) ( memo ) ( privacyPolicy )
 
 Shield transparent coinbase funds by sending to a shielded zaddr.  This is an asynchronous operation and utxos
 selected for shielding will be locked.  If there is an error, they are unlocked.  The RPC call `listlockunspent`
@@ -43,15 +43,20 @@ transaction size of 100000 bytes before Sapling, and 2000000 bytes once Sapling 
 Arguments:
 1. &#34;fromaddress&#34;         (string, required) The address is a taddr or &#34;*&#34; for all taddrs belonging to the wallet.
 2. &#34;toaddress&#34;           (string, required) The address is a zaddr.
-3. fee                   (numeric, optional, default=0.00001) The fee amount to attach to this transaction.
+3. fee                   (numeric, optional, default=null) The fee amount in ZEC to attach to this transaction. The default behavior
+                         is to use a fee calculated according to ZIP 317.
 4. limit                 (numeric, optional, default=50) Limit on the maximum number of utxos to shield.  Set to 0 to use as many as will fit in the transaction.
+5. &#34;memo&#34;                (string, optional) Encoded as hex. This will be stored in the memo field of the new note.
+6. privacyPolicy         (string, optional, default=&#34;AllowRevealedSenders&#34;) Policy for what information leakage is acceptable.
+                         This allows the same values as z_sendmany, but only &#34;AllowRevealedSenders&#34; and &#34;AllowLinkingAccountAddresses&#34;
+                         are relevant.
 
 Result:
 {
-  &#34;remainingUTXOs&#34;: xxx       (numeric) Number of coinbase utxos still available for shielding.
-  &#34;remainingValue&#34;: xxx       (numeric) Value of coinbase utxos still available for shielding.
-  &#34;shieldingUTXOs&#34;: xxx        (numeric) Number of coinbase utxos being shielded.
-  &#34;shieldingValue&#34;: xxx        (numeric) Value of coinbase utxos being shielded.
+  &#34;remainingUTXOs&#34;: xxx    (numeric) Number of coinbase utxos still available for shielding.
+  &#34;remainingValue&#34;: xxx    (numeric) Value of coinbase utxos still available for shielding.
+  &#34;shieldingUTXOs&#34;: xxx    (numeric) Number of coinbase utxos being shielded.
+  &#34;shieldingValue&#34;: xxx    (numeric) Value of coinbase utxos being shielded.
   &#34;opid&#34;: xxx          (string) An operationid to pass to z_getoperationstatus to get the result of the operation.
 }
 
@@ -349,9 +354,6 @@ Examples:
                   <a href="estimatefee.html">estimatefee</a>
                   <br>
                 
-                  <a href="estimatepriority.html">estimatepriority</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -378,9 +380,6 @@ Examples:
                   <br>
                 
                   <a href="dumpprivkey.html">dumpprivkey</a>
-                  <br>
-                
-                  <a href="dumpwallet.html">dumpwallet</a>
                   <br>
                 
                   <a href="encryptwallet.html">encryptwallet</a>
@@ -546,15 +545,6 @@ Examples:
                   <br>
                 
                   <a href="zcbenchmark.html">zcbenchmark</a>
-                  <br>
-                
-                  <a href="zcrawjoinsplit.html">zcrawjoinsplit</a>
-                  <br>
-                
-                  <a href="zcrawkeygen.html">zcrawkeygen</a>
-                  <br>
-                
-                  <a href="zcrawreceive.html">zcrawreceive</a>
                   <br>
                 
                   <a href="zcsamplejoinsplit.html">zcsamplejoinsplit</a>
