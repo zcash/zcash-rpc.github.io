@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.2 RPC Docs - getwalletinfo">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - getwalletinfo">
     <meta name="author" content="">
-    <title>getwalletinfo - Zcash 5.3.2 RPC Docs</title>
+    <title>getwalletinfo - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,14 +23,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getwalletinfo - Zcash 5.3.2 RPC</h1>
+            <h1>getwalletinfo - Zcash 5.5.0 RPC</h1>
           
             <pre>getwalletinfo ( asOfHeight )
 Returns wallet state information.
@@ -60,7 +60,7 @@ Result:
   &#34;keypoololdest&#34;: xxxxxx,    (numeric) the timestamp (seconds since GMT epoch) of the oldest pre-generated key in the key pool
   &#34;keypoolsize&#34;: xxxx,        (numeric) how many new keys are pre-generated
   &#34;unlocked_until&#34;: ttt,      (numeric) the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked
-  &#34;paytxfee&#34;: x.xxxx,         (numeric) the transaction fee configuration, set in ZEC/kB
+  &#34;paytxfee&#34;: x.xxxx,         (numeric) the preferred transaction fee rate used for transactions created by legacy APIs, set in ZEC per 1000 bytes
   &#34;mnemonic_seedfp&#34;: &#34;uint256&#34;, (string) the BLAKE2b-256 hash of the HD seed derived from the wallet&#39;s emergency recovery phrase
   &#34;legacy_seedfp&#34;: &#34;uint256&#34;,   (string, optional) if this wallet was created prior to release 4.5.2, this will contain the BLAKE2b-256
                                     hash of the legacy HD seed that was used to derive Sapling addresses prior to the 4.5.2 upgrade to mnemonic
@@ -361,9 +361,6 @@ Examples:
                   <a href="estimatefee.html">estimatefee</a>
                   <br>
                 
-                  <a href="estimatepriority.html">estimatepriority</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -390,9 +387,6 @@ Examples:
                   <br>
                 
                   <a href="dumpprivkey.html">dumpprivkey</a>
-                  <br>
-                
-                  <a href="dumpwallet.html">dumpwallet</a>
                   <br>
                 
                   <a href="encryptwallet.html">encryptwallet</a>
@@ -558,15 +552,6 @@ Examples:
                   <br>
                 
                   <a href="zcbenchmark.html">zcbenchmark</a>
-                  <br>
-                
-                  <a href="zcrawjoinsplit.html">zcrawjoinsplit</a>
-                  <br>
-                
-                  <a href="zcrawkeygen.html">zcrawkeygen</a>
-                  <br>
-                
-                  <a href="zcrawreceive.html">zcrawreceive</a>
                   <br>
                 
                   <a href="zcsamplejoinsplit.html">zcsamplejoinsplit</a>

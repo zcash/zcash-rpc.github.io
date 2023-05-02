@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.2 RPC Docs - z_sendmany">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - z_sendmany">
     <meta name="author" content="">
-    <title>z_sendmany - Zcash 5.3.2 RPC Docs</title>
+    <title>z_sendmany - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,14 +23,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>z_sendmany - Zcash 5.3.2 RPC</h1>
+            <h1>z_sendmany - Zcash 5.5.0 RPC</h1>
           
             <pre>z_sendmany &#34;fromaddress&#34; [{&#34;address&#34;:... ,&#34;amount&#34;:...},...] ( minconf ) ( fee ) ( privacyPolicy )
 
@@ -54,10 +54,12 @@ Arguments:
     [{
       &#34;address&#34;:address  (string, required) The address is a taddr, zaddr, or Unified Address
       &#34;amount&#34;:amount    (numeric, required) The numeric amount in ZEC is the value
-      &#34;memo&#34;:memo        (string, optional) If the address is a zaddr, raw data represented in hexadecimal string format
+      &#34;memo&#34;:memo        (string, optional) If the address is a zaddr, raw data represented in hexadecimal string format. If
+                           the output is being sent to a transparent address, it’s an error to include this field.
     }, ... ]
 3. minconf               (numeric, optional, default=10) Only use funds confirmed at least this many times.
-4. fee                   (numeric, optional, default=0.00001) The fee amount to attach to this transaction.
+4. fee                   (numeric, optional, default=null) The fee amount in ZEC to attach to this transaction. The default behavior
+                         is to use a fee calculated according to ZIP 317.
 5. privacyPolicy         (string, optional, default=&#34;LegacyCompat&#34;) Policy for what information leakage is acceptable.
                          One of the following strings:
                                - &#34;FullPrivacy&#34;: Only allow fully-shielded transactions (involving a single shielded value pool).
@@ -85,6 +87,8 @@ Result:
 Examples:
 &gt; zcash-cli z_sendmany &#34;t1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd&#34; &#39;[{&#34;address&#34;: &#34;ztfaW34Gj9FrnGUEf833ywDVL62NWXBM81u6EQnM6VR45eYnXhwztecW1SjxA7JrmAXKJhxhj3vDNEpVCQoSvVoSpmbhtjf&#34;, &#34;amount&#34;: 5.0}]&#39;
 &gt; zcash-cli z_sendmany &#34;ANY_TADDR&#34; &#39;[{&#34;address&#34;: &#34;t1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd&#34;, &#34;amount&#34;: 2.0}]&#39;
+&gt; zcash-cli z_sendmany &#34;ANY_TADDR&#34; &#39;[{&#34;address&#34;: &#34;t1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd&#34;, &#34;amount&#34;: 2.0}]&#39; 1 null &#39;AllowFullyTransparent&#39;
+&gt; zcash-cli z_sendmany &#34;ANY_TADDR&#34; &#39;[{&#34;address&#34;: &#34;t1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd&#34;, &#34;amount&#34;: 2.0}]&#39; 1 5000
 &gt; curl --user myusername --data-binary &#39;{&#34;jsonrpc&#34;: &#34;1.0&#34;, &#34;id&#34;:&#34;curltest&#34;, &#34;method&#34;: &#34;z_sendmany&#34;, &#34;params&#34;: [&#34;t1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd&#34;, [{&#34;address&#34;: &#34;ztfaW34Gj9FrnGUEf833ywDVL62NWXBM81u6EQnM6VR45eYnXhwztecW1SjxA7JrmAXKJhxhj3vDNEpVCQoSvVoSpmbhtjf&#34;, &#34;amount&#34;: 5.0}]] }&#39; -H &#39;content-type: text/plain;&#39; http://127.0.0.1:8232/
 
 </pre>
@@ -377,9 +381,6 @@ Examples:
                   <a href="estimatefee.html">estimatefee</a>
                   <br>
                 
-                  <a href="estimatepriority.html">estimatepriority</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -406,9 +407,6 @@ Examples:
                   <br>
                 
                   <a href="dumpprivkey.html">dumpprivkey</a>
-                  <br>
-                
-                  <a href="dumpwallet.html">dumpwallet</a>
                   <br>
                 
                   <a href="encryptwallet.html">encryptwallet</a>
@@ -574,15 +572,6 @@ Examples:
                   <br>
                 
                   <a href="zcbenchmark.html">zcbenchmark</a>
-                  <br>
-                
-                  <a href="zcrawjoinsplit.html">zcrawjoinsplit</a>
-                  <br>
-                
-                  <a href="zcrawkeygen.html">zcrawkeygen</a>
-                  <br>
-                
-                  <a href="zcrawreceive.html">zcrawreceive</a>
                   <br>
                 
                   <a href="zcsamplejoinsplit.html">zcsamplejoinsplit</a>

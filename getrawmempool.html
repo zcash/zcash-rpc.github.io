@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.2 RPC Docs - getrawmempool">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - getrawmempool">
     <meta name="author" content="">
-    <title>getrawmempool - Zcash 5.3.2 RPC Docs</title>
+    <title>getrawmempool - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,14 +23,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getrawmempool - Zcash 5.3.2 RPC</h1>
+            <h1>getrawmempool - Zcash 5.5.0 RPC</h1>
           
             <pre>getrawmempool ( verbose )
 
@@ -53,8 +53,9 @@ Result: (for verbose = true):
     &#34;modifiedfee&#34; : n,      (numeric) transaction fee with fee deltas used for mining priority
     &#34;time&#34; : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
     &#34;height&#34; : n,           (numeric) block height when transaction entered pool
-    &#34;startingpriority&#34; : n, (numeric) priority when transaction entered pool
-    &#34;currentpriority&#34; : n,  (numeric) transaction priority now
+    &#34;descendantcount&#34; : n,  (numeric) number of in-mempool descendant transactions (including this one)
+    &#34;descendantsize&#34; : n,   (numeric) size of in-mempool descendants (including this one)
+    &#34;descendantfees&#34; : n,   (numeric) modified fees (see &#34;modifiedfee&#34; above) of in-mempool descendants (including this one)
     &#34;depends&#34; : [           (array) unconfirmed transactions used as inputs for this transaction
         &#34;transactionid&#34;,    (string) parent transaction id
        ... ]
@@ -355,9 +356,6 @@ Examples
                   <a href="estimatefee.html">estimatefee</a>
                   <br>
                 
-                  <a href="estimatepriority.html">estimatepriority</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -384,9 +382,6 @@ Examples
                   <br>
                 
                   <a href="dumpprivkey.html">dumpprivkey</a>
-                  <br>
-                
-                  <a href="dumpwallet.html">dumpwallet</a>
                   <br>
                 
                   <a href="encryptwallet.html">encryptwallet</a>
@@ -552,15 +547,6 @@ Examples
                   <br>
                 
                   <a href="zcbenchmark.html">zcbenchmark</a>
-                  <br>
-                
-                  <a href="zcrawjoinsplit.html">zcrawjoinsplit</a>
-                  <br>
-                
-                  <a href="zcrawkeygen.html">zcrawkeygen</a>
-                  <br>
-                
-                  <a href="zcrawreceive.html">zcrawreceive</a>
                   <br>
                 
                   <a href="zcsamplejoinsplit.html">zcsamplejoinsplit</a>

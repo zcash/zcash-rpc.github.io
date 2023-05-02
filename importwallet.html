@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.2 RPC Docs - importwallet">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - importwallet">
     <meta name="author" content="">
-    <title>importwallet - Zcash 5.3.2 RPC Docs</title>
+    <title>importwallet - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,18 +23,18 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>importwallet - Zcash 5.3.2 RPC</h1>
+            <h1>importwallet - Zcash 5.5.0 RPC</h1>
           
             <pre>importwallet &#34;filename&#34;
 
-Imports taddr keys from a wallet dump file (see dumpwallet).
+Imports taddr keys from a wallet dump file (see z_exportwallet).
 
 Arguments:
 1. &#34;filename&#34;    (string, required) The wallet file
@@ -42,7 +42,7 @@ Arguments:
 Examples:
 
 Dump the wallet
-&gt; zcash-cli dumpwallet &#34;nameofbackup&#34;
+&gt; zcash-cli z_exportwallet &#34;nameofbackup&#34;
 
 Import the wallet
 &gt; zcash-cli importwallet &#34;path/to/exportdir/nameofbackup&#34;
@@ -340,9 +340,6 @@ Import using the json rpc call
                   <a href="estimatefee.html">estimatefee</a>
                   <br>
                 
-                  <a href="estimatepriority.html">estimatepriority</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -369,9 +366,6 @@ Import using the json rpc call
                   <br>
                 
                   <a href="dumpprivkey.html">dumpprivkey</a>
-                  <br>
-                
-                  <a href="dumpwallet.html">dumpwallet</a>
                   <br>
                 
                   <a href="encryptwallet.html">encryptwallet</a>
@@ -537,15 +531,6 @@ Import using the json rpc call
                   <br>
                 
                   <a href="zcbenchmark.html">zcbenchmark</a>
-                  <br>
-                
-                  <a href="zcrawjoinsplit.html">zcrawjoinsplit</a>
-                  <br>
-                
-                  <a href="zcrawkeygen.html">zcrawkeygen</a>
-                  <br>
-                
-                  <a href="zcrawreceive.html">zcrawreceive</a>
                   <br>
                 
                   <a href="zcsamplejoinsplit.html">zcsamplejoinsplit</a>

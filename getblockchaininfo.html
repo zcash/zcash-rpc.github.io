@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.3.2 RPC Docs - getblockchaininfo">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - getblockchaininfo">
     <meta name="author" content="">
-    <title>getblockchaininfo - Zcash 5.3.2 RPC Docs</title>
+    <title>getblockchaininfo - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,14 +23,14 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.3.2 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getblockchaininfo - Zcash 5.3.2 RPC</h1>
+            <h1>getblockchaininfo - Zcash 5.5.0 RPC</h1>
           
             <pre>getblockchaininfo
 Returns an object containing various state info regarding block chain processing.
@@ -51,6 +51,19 @@ Result:
   &#34;chainwork&#34;: &#34;xxxx&#34;     (string) total amount of work in active chain, in hexadecimal
   &#34;size_on_disk&#34;: xxxxxx,       (numeric) the estimated size of the block and undo files on disk
   &#34;commitments&#34;: xxxxxx,    (numeric) the current number of note commitments in the commitment tree
+  &#34;chainSupply&#34;: {          (object) information about the total supply
+      &#34;monitored&#34;: xx,           (boolean) true if the total supply is being monitored
+      &#34;chainValue&#34;: xxxxxx,      (numeric, optional) total chain supply after this block, in ZEC
+      &#34;chainValueZat&#34;: xxxxxx,   (numeric, optional) total chain supply after this block, in zatoshis
+  }
+  &#34;valuePools&#34;: [            (array) information about each value pool
+      {
+          &#34;id&#34;: &#34;xxxx&#34;,            (string) name of the pool
+          &#34;monitored&#34;: xx,           (boolean) true if the pool is being monitored
+          &#34;chainValue&#34;: xxxxxx,      (numeric, optional) total amount in the pool, in ZEC
+          &#34;chainValueZat&#34;: xxxxxx,   (numeric, optional) total amount in the pool, in zatoshis
+      }, ...
+  ]
   &#34;softforks&#34;: [            (array) status of softforks in progress
      {
         &#34;id&#34;: &#34;xxxx&#34;,        (string) name of softfork
@@ -372,9 +385,6 @@ Examples:
                   <a href="estimatefee.html">estimatefee</a>
                   <br>
                 
-                  <a href="estimatepriority.html">estimatepriority</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -401,9 +411,6 @@ Examples:
                   <br>
                 
                   <a href="dumpprivkey.html">dumpprivkey</a>
-                  <br>
-                
-                  <a href="dumpwallet.html">dumpwallet</a>
                   <br>
                 
                   <a href="encryptwallet.html">encryptwallet</a>
@@ -569,15 +576,6 @@ Examples:
                   <br>
                 
                   <a href="zcbenchmark.html">zcbenchmark</a>
-                  <br>
-                
-                  <a href="zcrawjoinsplit.html">zcrawjoinsplit</a>
-                  <br>
-                
-                  <a href="zcrawkeygen.html">zcrawkeygen</a>
-                  <br>
-                
-                  <a href="zcrawreceive.html">zcrawreceive</a>
                   <br>
                 
                   <a href="zcsamplejoinsplit.html">zcsamplejoinsplit</a>
