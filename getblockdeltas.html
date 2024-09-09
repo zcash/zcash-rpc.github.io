@@ -36,21 +36,6 @@
 
 Returns information about the given block and its transactions.
 
-WARNING: getblockdeltas is disabled.
-To enable it, restart zcashd with the following command line options:
--experimentalfeatures and -insightexplorer or:
--experimentalfeatures and -lightwalletd
-
-Alternatively add these two lines to the zcash.conf file:
-
-experimentalfeatures=1
-insightexplorer=1
-
-or:
-
-experimentalfeatures=1
-lightwalletd=1
-
 Arguments:
 1. &#34;hash&#34;          (string, required) The block hash
 
@@ -193,6 +178,9 @@ Examples:
                   <br>
                 
                   <a href="verifytxoutproof.html">verifytxoutproof</a>
+                  <br>
+                
+                  <a href="z_getsubtreesbyindex.html">z_getsubtreesbyindex</a>
                   <br>
                 
                   <a href="z_gettreestate.html">z_gettreestate</a>
@@ -385,9 +373,6 @@ Examples:
                   <a href="createmultisig.html">createmultisig</a>
                   <br>
                 
-                  <a href="estimatefee.html">estimatefee</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -492,6 +477,9 @@ Examples:
                   <br>
                 
                   <a href="walletconfirmbackup.html">walletconfirmbackup</a>
+                  <br>
+                
+                  <a href="z_converttex.html">z_converttex</a>
                   <br>
                 
                   <a href="z_exportkey.html">z_exportkey</a>

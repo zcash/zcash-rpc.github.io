@@ -76,7 +76,7 @@ Result (for verbosity = 1):
       &#34;chainValueZat&#34;: xxxxxx,   (numeric, optional) total chain supply after this block, in zatoshis
       &#34;valueDelta&#34;: xxxxxx,      (numeric, optional) change to the chain supply produced by this block, in ZEC
       &#34;valueDeltaZat&#34;: xxxxxx,   (numeric, optional) change to the chain supply produced by this block, in zatoshis
-  }
+  },
   &#34;valuePools&#34;: [            (array) information about each value pool
       {
           &#34;id&#34;: &#34;xxxx&#34;,            (string) name of the pool
@@ -86,7 +86,15 @@ Result (for verbosity = 1):
           &#34;valueDelta&#34;: xxxxxx,      (numeric, optional) change to the amount in the pool produced by this block, in ZEC
           &#34;valueDeltaZat&#34;: xxxxxx,   (numeric, optional) change to the amount in the pool produced by this block, in zatoshis
       }, ...
-  ]
+  ],
+  &#34;trees&#34;: {                 (object) information about the note commitment trees
+      &#34;sapling&#34;: {             (object, optional)
+          &#34;size&#34;: n,             (numeric) the total number of Sapling note commitments as of the end of this block
+      },
+      &#34;orchard&#34;: {             (object, optional)
+          &#34;size&#34;: n,             (numeric) the total number of Orchard note commitments as of the end of this block
+      },
+  },
   &#34;previousblockhash&#34; : &#34;hash&#34;,  (string) The hash of the previous block
   &#34;nextblockhash&#34; : &#34;hash&#34;       (string) The hash of the next block
 }
@@ -201,6 +209,9 @@ Examples:
                   <br>
                 
                   <a href="verifytxoutproof.html">verifytxoutproof</a>
+                  <br>
+                
+                  <a href="z_getsubtreesbyindex.html">z_getsubtreesbyindex</a>
                   <br>
                 
                   <a href="z_gettreestate.html">z_gettreestate</a>
@@ -393,9 +404,6 @@ Examples:
                   <a href="createmultisig.html">createmultisig</a>
                   <br>
                 
-                  <a href="estimatefee.html">estimatefee</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -500,6 +508,9 @@ Examples:
                   <br>
                 
                   <a href="walletconfirmbackup.html">walletconfirmbackup</a>
+                  <br>
+                
+                  <a href="z_converttex.html">z_converttex</a>
                   <br>
                 
                   <a href="z_exportkey.html">z_exportkey</a>

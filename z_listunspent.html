@@ -73,7 +73,8 @@ Result (output indices for only one value pool will be present):
     &#34;account&#34; : n,                     (numeric, optional) the unified account ID, if applicable
     &#34;address&#34; : &#34;address&#34;,             (string, optional) the shielded address, omitted if this note was sent to an internal receiver
     &#34;amount&#34;: xxxxx,                   (numeric) the amount of value in the note
-    &#34;memo&#34;: xxxxx,                     (string) hexadecimal string representation of memo field
+    &#34;memo&#34;: &#34;hexmemo&#34;,                 (string) hexadecimal string representation of memo field
+    &#34;memoStr&#34;: &#34;memo&#34;,                 (string, optional) UTF-8 string representation of memo field (if it contains valid UTF-8).
     &#34;change&#34;: true|false,              (boolean) true if the address that received the note is also one of the sending addresses
   }
   ,...
@@ -179,6 +180,9 @@ Examples
                   <br>
                 
                   <a href="verifytxoutproof.html">verifytxoutproof</a>
+                  <br>
+                
+                  <a href="z_getsubtreesbyindex.html">z_getsubtreesbyindex</a>
                   <br>
                 
                   <a href="z_gettreestate.html">z_gettreestate</a>
@@ -371,9 +375,6 @@ Examples
                   <a href="createmultisig.html">createmultisig</a>
                   <br>
                 
-                  <a href="estimatefee.html">estimatefee</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -478,6 +479,9 @@ Examples
                   <br>
                 
                   <a href="walletconfirmbackup.html">walletconfirmbackup</a>
+                  <br>
+                
+                  <a href="z_converttex.html">z_converttex</a>
                   <br>
                 
                   <a href="z_exportkey.html">z_exportkey</a>

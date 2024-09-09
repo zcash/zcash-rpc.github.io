@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.5.0 RPC Docs - setgenerate">
+    <meta name="description" content="Zcash 5.5.0 RPC Docs - z_converttex">
     <meta name="author" content="">
-    <title>setgenerate - Zcash 5.5.0 RPC Docs</title>
+    <title>z_converttex - Zcash 5.5.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -30,31 +30,20 @@
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>setgenerate - Zcash 5.5.0 RPC</h1>
+            <h1>z_converttex - Zcash 5.5.0 RPC</h1>
           
-            <pre>setgenerate generate ( genproclimit )
+            <pre>z_converttex ( &#34;transparentaddress&#34; )
 
-Set &#39;generate&#39; true or false to turn generation on or off.
-Generation is limited to &#39;genproclimit&#39; processors, -1 is unlimited.
-See the getgenerate call for the current setting.
+Converts a transparent Zcash address to a TEX address.
 
 Arguments:
-1. generate         (boolean, required) Set to true to turn on generation, off to turn off.
-2. genproclimit     (numeric, optional) Set the processor limit for when generation is on. Can be -1 for unlimited.
+1. &#34;transparentaddress&#34; (string, required) 
+
+Result:
+&#34;texaddress&#34;    (string) The converted ZIP 320 (TEX) address
 
 Examples:
-
-Set the generation on with a limit of one processor
-&gt; zcash-cli setgenerate true 1
-
-Check the setting
-&gt; zcash-cli getgenerate 
-
-Turn off generation
-&gt; zcash-cli setgenerate false
-
-Using json rpc
-&gt; curl --user myusername --data-binary &#39;{&#34;jsonrpc&#34;: &#34;1.0&#34;, &#34;id&#34;:&#34;curltest&#34;, &#34;method&#34;: &#34;setgenerate&#34;, &#34;params&#34;: [true, 1] }&#39; -H &#39;content-type: text/plain;&#39; http://127.0.0.1:8232/
+&gt; zcash-cli z_converttex &#34;t1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd&#34;
 
 </pre>
             <hr>

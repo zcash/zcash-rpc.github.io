@@ -37,25 +37,14 @@
 Returns the txids for given transparent addresses within the given (inclusive)
 
 block height range, default is the full blockchain.
+If start or end are not specified, they default to zero.
+If start is greater than the latest block height, it&#39;s interpreted as that height.
 
-Starting v4.5.0, returned txids are in the order they appear in blocks, which 
+If end is zero, it&#39;s interpreted as the latest block height.
 
-ensures that they are topologically sorted (i.e. parent txids will appear before child txids).
-
-WARNING: getaddresstxids is disabled.
-To enable it, restart zcashd with the following command line options:
--experimentalfeatures and -insightexplorer or:
--experimentalfeatures and -lightwalletd
-
-Alternatively add these two lines to the zcash.conf file:
-
-experimentalfeatures=1
-insightexplorer=1
-
-or:
-
-experimentalfeatures=1
-lightwalletd=1
+The returned txids are in the order they appear in blocks, which
+ensures that they are topologically sorted (i.e. parent txids
+appear before child txids).
 
 Arguments:
 {
@@ -175,6 +164,9 @@ Examples:
                   <br>
                 
                   <a href="verifytxoutproof.html">verifytxoutproof</a>
+                  <br>
+                
+                  <a href="z_getsubtreesbyindex.html">z_getsubtreesbyindex</a>
                   <br>
                 
                   <a href="z_gettreestate.html">z_gettreestate</a>
@@ -367,9 +359,6 @@ Examples:
                   <a href="createmultisig.html">createmultisig</a>
                   <br>
                 
-                  <a href="estimatefee.html">estimatefee</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -474,6 +463,9 @@ Examples:
                   <br>
                 
                   <a href="walletconfirmbackup.html">walletconfirmbackup</a>
+                  <br>
+                
+                  <a href="z_converttex.html">z_converttex</a>
                   <br>
                 
                   <a href="z_exportkey.html">z_exportkey</a>
