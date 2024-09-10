@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.10.0 RPC Docs - estimatefee">
+    <meta name="description" content="Zcash 5.10.0 RPC Docs - z_converttex">
     <meta name="author" content="">
-    <title>estimatefee - Zcash 5.10.0 RPC Docs</title>
+    <title>z_converttex - Zcash 5.10.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -30,25 +30,20 @@
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>estimatefee - Zcash 5.10.0 RPC</h1>
+            <h1>z_converttex - Zcash 5.10.0 RPC</h1>
           
-            <pre>estimatefee nblocks
+            <pre>z_converttex ( &#34;transparentaddress&#34; )
 
-Estimates the approximate fee per kilobyte
-needed for a transaction to begin confirmation
-within nblocks blocks.
+Converts a transparent Zcash address to a TEX address.
 
 Arguments:
-1. nblocks     (numeric)
+1. &#34;transparentaddress&#34; (string, required) 
 
 Result:
-n :    (numeric) estimated fee-per-kilobyte
+&#34;texaddress&#34;    (string) The converted ZIP 320 (TEX) address
 
--1.0 is returned if not enough transactions and
-blocks have been observed to make an estimate.
-
-Example:
-&gt; zcash-cli estimatefee 6
+Examples:
+&gt; zcash-cli z_converttex &#34;t1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd&#34;
 
 </pre>
             <hr>
@@ -145,6 +140,9 @@ Example:
                   <br>
                 
                   <a href="verifytxoutproof.html">verifytxoutproof</a>
+                  <br>
+                
+                  <a href="z_getsubtreesbyindex.html">z_getsubtreesbyindex</a>
                   <br>
                 
                   <a href="z_gettreestate.html">z_gettreestate</a>
@@ -337,9 +335,6 @@ Example:
                   <a href="createmultisig.html">createmultisig</a>
                   <br>
                 
-                  <a href="estimatefee.html">estimatefee</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -444,6 +439,9 @@ Example:
                   <br>
                 
                   <a href="walletconfirmbackup.html">walletconfirmbackup</a>
+                  <br>
+                
+                  <a href="z_converttex.html">z_converttex</a>
                   <br>
                 
                   <a href="z_exportkey.html">z_exportkey</a>

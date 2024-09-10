@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200px, shrink-to-fit=yes">
-    <meta name="description" content="Zcash 5.5.0 RPC Docs - getaddresstxids">
+    <meta name="description" content="Zcash 5.10.0 RPC Docs - getaddresstxids">
     <meta name="author" content="">
-    <title>getaddresstxids - Zcash 5.5.0 RPC Docs</title>
+    <title>getaddresstxids - Zcash 5.10.0 RPC Docs</title>
     <link href="./bootstrap.min.css" rel="stylesheet">
   </head>
   <style>
@@ -23,39 +23,28 @@
 
 
     <nav class="navbar  navbar-dark bg-dark ">
-      <a class="navbar-brand" href="/">Zcash 5.5.0 RPC Docs</a>
+      <a class="navbar-brand" href="/">Zcash 5.10.0 RPC Docs</a>
     </nav>
 
     <main role="main" class="container-fluid" style="margin-top: 1pc;">
 
       <div class="row">
         <div class="col-8 col-lg-9 col-xl-10">
-            <h1>getaddresstxids - Zcash 5.5.0 RPC</h1>
+            <h1>getaddresstxids - Zcash 5.10.0 RPC</h1>
           
             <pre>getaddresstxids {&#34;addresses&#34;: [&#34;taddr&#34;, ...], (&#34;start&#34;: n), (&#34;end&#34;: n)}
 
 Returns the txids for given transparent addresses within the given (inclusive)
 
 block height range, default is the full blockchain.
+If start or end are not specified, they default to zero.
+If start is greater than the latest block height, it&#39;s interpreted as that height.
 
-Starting v4.5.0, returned txids are in the order they appear in blocks, which 
+If end is zero, it&#39;s interpreted as the latest block height.
 
-ensures that they are topologically sorted (i.e. parent txids will appear before child txids).
-
-WARNING: getaddresstxids is disabled.
-To enable it, restart zcashd with the following command line options:
--experimentalfeatures and -insightexplorer or:
--experimentalfeatures and -lightwalletd
-
-Alternatively add these two lines to the zcash.conf file:
-
-experimentalfeatures=1
-insightexplorer=1
-
-or:
-
-experimentalfeatures=1
-lightwalletd=1
+The returned txids are in the order they appear in blocks, which
+ensures that they are topologically sorted (i.e. parent txids
+appear before child txids).
 
 Arguments:
 {
@@ -175,6 +164,9 @@ Examples:
                   <br>
                 
                   <a href="verifytxoutproof.html">verifytxoutproof</a>
+                  <br>
+                
+                  <a href="z_getsubtreesbyindex.html">z_getsubtreesbyindex</a>
                   <br>
                 
                   <a href="z_gettreestate.html">z_gettreestate</a>
@@ -367,9 +359,6 @@ Examples:
                   <a href="createmultisig.html">createmultisig</a>
                   <br>
                 
-                  <a href="estimatefee.html">estimatefee</a>
-                  <br>
-                
                   <a href="validateaddress.html">validateaddress</a>
                   <br>
                 
@@ -474,6 +463,9 @@ Examples:
                   <br>
                 
                   <a href="walletconfirmbackup.html">walletconfirmbackup</a>
+                  <br>
+                
+                  <a href="z_converttex.html">z_converttex</a>
                   <br>
                 
                   <a href="z_exportkey.html">z_exportkey</a>
